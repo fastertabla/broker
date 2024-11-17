@@ -1,85 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Form</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with Background Image</title>
     <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-		background-color: green
-      }
-      .background-image {
-        width: 50%;
-        height: 50vh; /* Cover half the viewport height */
-        background: url("lbg1.jpg") no-repeat center center;
-        background-size: contain;
-        margin-bottom: 20px; /* Add space below the image for the form */
-      }
-      .login-form {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .login-form input {
-        width: 80%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-      .submit-btn {
-        width: 85%;
-        padding: 10px 20px;
-        background-color: #006747;
-        border: none;
-        color: white;
-        font-size: 16px;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      .submit-btn:hover {
-        background-color: #004f35;
-      }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            min-height: 100vh;
+            background-color: #004f35;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 400px;
+            background: url('lbg1.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 10; /* Ensure it appears over the background */
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5%;
+            width: 250px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #4a4a4a;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
+            background-color: #ffffff;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #004f35;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .login-container p {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #888888;
+        }
+
+        .login-container p a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .login-container p a:hover {
+            color: #0056b3;
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="background-image"></div>
-      <div class="login-form">
-        <form name="login-form" action="home.html" method="POST" netlify>
-          <input type="hidden" name="form-name" value="login-form" />
-          <input
-            type="text"
-            name="username"
-            class="input-field"
-            placeholder="Username"
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            class="input-field"
-            placeholder="Password"
-            required
-          />
-          <br />
-          <button type="submit" class="submit-btn">Login</button>
+</head>
+<body>
+    <div class="background-image"></div>
+
+    <div class="login-container">
+        <form>
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
         </form>
-      </div>
     </div>
-  </body>
+</body>
 </html>
